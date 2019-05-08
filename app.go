@@ -47,6 +47,7 @@ func serveTemplate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Return a 500, serve error
 	if err := tmpl.ExecuteTemplate(w, "layout", nil); err != nil {
 		log.Println(err.Error())
 		http.Error(w, http.StatusText(500), 500)
